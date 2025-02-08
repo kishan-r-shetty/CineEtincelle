@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineÉtincelle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="splash-screen" id="splash-screen">
+        <div class="splash-content">
+            <h1 class="splash-title">CineÉtincelle</h1>
+        </div>
+    </div>
+
+    <div class="main-app" id="main-app" style="display: none;">
+        <div class="title">CineÉtincelle</div>
+        <div class="message" id="message"></div>
+        
+        <div class="profile-section" id="profile-section" style="display: none;">
+            <div class="profile-form">
+                <h2>Create Your Profile</h2>
+                <form id="profile-form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age" min="18" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profile-picture">Profile Picture:</label>
+                        <input type="file" id="profile-picture" name="profile_picture" accept="image/*" required>
+                        <div class="preview-container">
+                            <img id="picture-preview" src="" alt="Preview" style="display: none; max-width: 200px;">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="create-profile-btn">Create Profile</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="main-container" id="main-container" style="display: none;">
+            <div class="swipe-section">
+                <div class="card-container">
+                    <div class="card" id="card">
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button class="dislike-btn" onclick="handleSwipe('left')">👎 Dislike</button>
+                    <button class="skip-btn" onclick="handleSwipe('up')">⏭️ Skip</button>
+                    <button class="like-btn" onclick="handleSwipe('right')">👍 Like</button>
+                </div>
+            </div>
+
+            <div class="results-section" id="results">
+                <div class="liked-movies">
+                    <div class="section-title">Movies You Liked</div>
+                    <div id="liked-movies-list">
+                    </div>
+                </div>
+
+                <div id="matches-section" style="display: none;">
+                    <div class="section-title">Your Matches</div>
+                    <div id="matches-list">
+                    </div>
+                </div>
+
+                <div id="recommendations-section" style="display: none;">
+                    <div class="section-title">Recommended Movies</div>
+                    <div id="recommendations-list">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
